@@ -48,19 +48,18 @@ void insert(LLPtr *sPtr, int id, char name[]) {
             currentPtr = currentPtr->nextPtr;
       }
 
-      if (previousPtr == NULL) { // แทรกที่หัว list
-         newPtr->nextPtr = *sPtr;
-         
-         if (*sPtr != NULL) {
-            (*sPtr)->pPtr = newPtr;
-         }
+        if (previousPtr == NULL) { // แทรกที่หัว list
+            newPtr->nextPtr = *sPtr;
+            if (*sPtr != NULL) {
+               (*sPtr)->pPtr = newPtr;
+            }
             *sPtr = newPtr;
-      } else { // แทรกกลางหรือท้าย
+        } else { // แทรกกลางหรือท้าย
             newPtr->nextPtr = currentPtr;
             newPtr->pPtr = previousPtr;
             previousPtr->nextPtr = newPtr;
             if (currentPtr != NULL) {
-               currentPtr->nextPtr->pPtr = newPtr; // แก้ไขจุดนี้ให้ถูกต้อง
+                currentPtr->nextPtr->pPtr = newPtr; // แก้ไขจุดนี้ให้ถูกต้อง
             }
       }
    }
@@ -78,21 +77,21 @@ void printList(LLPtr currentPtr) {
    }
    puts("The list is:");
    while (currentPtr != NULL) {
-      printf("%d %s -->", currentPtr->id, currentPtr->name);
+      printf("%d %s --> ", currentPtr->id, currentPtr->name);
       currentPtr = currentPtr->nextPtr;
    }
-   puts("%d %s -->NULL", currentPtr->id, currentPtr->name);
+   puts("NULL");
 }
 
 void printListR(LLPtr currentPtr) {
    if (currentPtr == NULL) return;
-   // เดินไปให้สุดก่อน
+    // เดินไปให้สุดก่อน
    while (currentPtr->nextPtr != NULL) {
       currentPtr = currentPtr->nextPtr;
    }
-   // ถอยหลังกลับ
+    // ถอยหลังกลับ
    while (currentPtr != NULL) {
-      printf(" %d %s -->", currentPtr->id, currentPtr->name);
+      printf("%d %s --> ", currentPtr->id, currentPtr->name);
       currentPtr = currentPtr->pPtr;
    }
    puts("NULL\n");
@@ -108,14 +107,13 @@ int deletes(LLPtr *sPtr, int id) {
 
    if (currentPtr != NULL) {
       LLPtr tempPtr = currentPtr;
-      
-      if (currentPtr->pPtr == NULL) { // ลบตัวแรก
+         if (currentPtr->pPtr == NULL) { // ลบตัวแรก
             *sPtr = currentPtr->nextPtr;
             if (*sPtr != NULL) (*sPtr)->pPtr = NULL;
       } else {
             currentPtr->pPtr->nextPtr = currentPtr->nextPtr;
             if (currentPtr->nextPtr != NULL) {
-               currentPtr->nextPtr->pPtr = currentPtr->pPtr;
+                currentPtr->nextPtr->pPtr = currentPtr->pPtr;
             }
       }
       free(tempPtr);
@@ -135,7 +133,5 @@ void clearList(LLPtr *sPtr) {
       currentPtr = currentPtr->nextPtr;
       free(tempPtr);
    }
-
-   *sPtr = NULL;
+    *sPtr = NULL;
 }
-
