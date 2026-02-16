@@ -16,7 +16,7 @@ typedef LLnode *LLPtr;      // synonym for ListNode*
 
 int deletes(LLPtr *sPtr, int value);
 int isEmpty(LLPtr sPtr);
-void insert(LLPtr *sPtr, int id, char name[]);
+void insert( LLPtr *sPtr, int id, char name[] );
 void printList(LLPtr currentPtr);
 void printListR(LLPtr currentPtr);
 void instructions(void);

@@ -17,11 +17,10 @@ int main(void) {
    while (choice != 3) {
       switch (choice) {
          case 1:
-            printf("Enter id and name: ");
-            scanf("%d %s", &id, name);
-            insert(&startPtr, id, name);
-            printList(startPtr);
-            printListR(startPtr);
+            scanf( "%d %s", &id, name ); 
+            insert( &startPtr, id, name );
+            printList( startPtr );
+            printListR( startPtr );
             break;
          case 2:
             if ( !isEmpty(startPtr) ) {
