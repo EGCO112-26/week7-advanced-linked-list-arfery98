@@ -24,7 +24,7 @@ int main(void) {
             break;
          case 2:
             if ( !isEmpty(startPtr) ) {
-               printf("Enter number to be deleted: ");
+               //printf("Enter number to be deleted: ");
                scanf("%d", &id);
                   if (deletes(&startPtr, id)) {
                      printf("%d deleted.\n", id);
