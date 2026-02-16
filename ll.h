@@ -77,7 +77,7 @@ void printList(LLPtr currentPtr) {
    }
    puts("The list is:");
    while (currentPtr != NULL) {
-      printf("%d %s --> ", currentPtr->id, currentPtr->name);
+      printf("%d %s -->", currentPtr->id, currentPtr->name);
       currentPtr = currentPtr->nextPtr;
    }
    puts("NULL");
@@ -91,7 +91,7 @@ void printListR(LLPtr currentPtr) {
    }
     // ถอยหลังกลับ
    while (currentPtr != NULL) {
-      printf("%d %s --> ", currentPtr->id, currentPtr->name);
+      printf("%d %s -->", currentPtr->id, currentPtr->name);
       currentPtr = currentPtr->pPtr;
    }
    puts("NULL\n");
